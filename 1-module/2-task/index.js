@@ -11,6 +11,16 @@ function print(text) {
  */
 function isValid(name) {
   // ваш код...
+  if (!name || name.indexOf(' ') !== -1 || name.length < 4) {
+    return false;
+  }
+  return true;
+
+  /*
+    return (!name || name.length < 4 || name.indexOf(' ') !== -1) ? 'false' : 'true'
+    Влад, какой способ в данном случае лучше?
+    И как можно улучшить вообще?
+   */
 }
 
 function sayHello() {
