@@ -2,10 +2,7 @@ function checkSpam(str) {
   // ваш код...
   let normalizeStr = str.toLowerCase();
 
-  if (normalizeStr.includes("1xbet") || normalizeStr.includes("xxx")) {
-    return true;
-  }
-  return false;
+  return normalizeStr.includes("1xbet") || normalizeStr.includes("xxx");
 
   /*
     if (str.toLowerCase().indexOf("1xBet") !== -1 || str.toLowerCase().indexOf("XXX") !== -1) {
