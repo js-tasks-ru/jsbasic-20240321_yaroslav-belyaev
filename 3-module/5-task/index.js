@@ -1,9 +1,9 @@
 function getMinMax(str) {
   // ваш код...
-  const sorted = str.split(' ').filter((item) => isFinite(item)).sort((a, b) => a - b);
+  const filtered = str.split(' ').filter((item) => Number(item));
 
   return {
-    min: Number(sorted.shift()),
-    max: Number(sorted.pop()),
+    min: Math.min(...filtered),
+    max: Math.max(...filtered),
   };
 }
