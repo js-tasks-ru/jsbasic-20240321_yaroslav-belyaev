@@ -62,6 +62,7 @@ export default class Modal {
     this.elem.classList.add('modal');
     this.elem.innerHTML = this.#template();
 
+    // Возможно эти обработчики лучше вынести в метод опен
     this.#onClick();
     document.addEventListener('keydown', this.#onKeyDown);
 
