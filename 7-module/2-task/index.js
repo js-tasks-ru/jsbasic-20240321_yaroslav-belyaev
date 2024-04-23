@@ -34,7 +34,6 @@ export default class Modal {
   open() {
     document.body.append(this.elem);
     document.body.classList.add('is-modal-open');
-    document.addEventListener('keydown', this.#onKeyDown);
   }
 
 
@@ -64,6 +63,7 @@ export default class Modal {
     this.elem.innerHTML = this.#template();
 
     this.#onClick();
+    document.addEventListener('keydown', this.#onKeyDown);
 
     return this.elem;
   }
