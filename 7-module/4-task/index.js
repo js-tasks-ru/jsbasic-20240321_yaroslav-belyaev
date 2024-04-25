@@ -67,9 +67,8 @@ export default class StepSlider {
     this.#setValue(this.value, valuePercents);
 
     const event = new CustomEvent("slider-change", {
-      // имя события должно быть именно 'slider-change'
-      detail: this.value, // значение 0, 1, 2, 3, 4
-      bubbles: true, // событие всплывает - это понадобится в дальнейшем
+      detail: this.value,
+      bubbles: true,
     });
 
     this.elem.dispatchEvent(event);
