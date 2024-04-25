@@ -1,4 +1,4 @@
-import createElement from '../../assets/lib/create-element.js';
+import createElement from "../../assets/lib/create-element.js";
 
 export default class Modal {
   elem = null;
@@ -22,51 +22,49 @@ export default class Modal {
   }
 
   setTitle(title) {
-    this.elem.querySelector('.modal__title').textContent = title;
+    this.elem.querySelector(".modal__title").textContent = title;
   }
 
   setBody(node) {
-    this.elem.querySelector('.modal__body').innerHTML = '';
-    this.elem.querySelector('.modal__body').append(node);
+    this.elem.querySelector(".modal__body").innerHTML = "";
+    this.elem.querySelector(".modal__body").append(node);
   }
-
 
   open() {
     document.body.append(this.elem);
-    document.body.classList.add('is-modal-open');
+    document.body.classList.add("is-modal-open");
+    this.#onClick();
+    document.addEventListener("keydown", this.#onKeyDown);
   }
 
-
   close() {
-    document.body.classList.remove('is-modal-open');
-    document.removeEventListener('keydown', this.#onKeyDown);
+    document.body.classList.remove("is-modal-open");
+    document.removeEventListener("keydown", this.#onKeyDown);
     this.elem.remove();
   }
 
   #onClick = () => {
-    this.elem.querySelector('.modal__close').addEventListener('click', () => {
-      this.close();
-    }, {once: true});
-  }
-
+    this.elem.querySelector(".modal__close").addEventListener(
+      "click",
+      () => {
+        this.close();
+      },
+      { once: true },
+    );
+  };
 
   #onKeyDown = (event) => {
-    if (event.code === 'Escape') {
+    if (event.code === "Escape") {
       event.preventDefault();
       this.close();
     }
   };
 
   render() {
-    this.elem = document.createElement('div');
-    this.elem.classList.add('modal');
+    this.elem = document.createElement("div");
+    this.elem.classList.add("modal");
     this.elem.innerHTML = this.#template();
-
-    // Возможно эти обработчики лучше вынести в метод опен
-    this.#onClick();
-    document.addEventListener('keydown', this.#onKeyDown);
 
     return this.elem;
   }
-
 }
