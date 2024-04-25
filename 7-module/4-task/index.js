@@ -66,6 +66,8 @@ export default class StepSlider {
 
     this.#setValue(this.value, valuePercents);
 
+    // Update
+
     const event = new CustomEvent("slider-change", {
       detail: this.value,
       bubbles: true,
